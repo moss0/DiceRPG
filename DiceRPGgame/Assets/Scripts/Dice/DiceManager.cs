@@ -1,48 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.UI;
 namespace Dice
 {
     public class DiceManager : MonoBehaviour
     {
+        public Button rollDice;
+        public TMP_Text D6result;
+        public TMP_Text D12result;
+        public TMP_Text D20result;
         public void Start()
         {
-            List<string> diceValues = new List<string>();
-            diceValues.Add("D6: ");
-            diceValues.Add("D12: ");
-            diceValues.Add("D20: ");
+            List<int> diceValues = new List<int>();
+            diceValues.Add(6);
+            diceValues.Add(12);
+            diceValues.Add(20);
+            rollDice.onClick.AddListener(DiceRoll);
         }
 
-
-
-
-
-
-
-
-
-        //public int D6value;
-        //public int D12value;
-        //public int D20value;
-
-
-        //public void Dice6()
-        //{
-        //    int rng6 = Random.Range(1, 7);
-        //    D6value = rng6;
-        //}
-
-        //public void Dice12()
-        //{
-        //    int rng12 = Random.Range(1, 13);
-        //    D12value = rng12;
-        //}
-
-        //public void Dice20()
-        //{
-        //    int rng20 = Random.Range(1, 21);
-        //    D20value = rng20;
-        //}
-    }
+        
+        private void DiceRoll()
+        {
+            int D6result = Random.Range(1, 7);
+            int D12result = Random.Range(1, 13);
+            int D20result = Random.Range(1, 21);
+            Debug.Log("D6: " + D6result);
+            Debug.Log("D12: " + D12result);
+            Debug.Log("D20: " + D20result);
+        }
 }
+    }

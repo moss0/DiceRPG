@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|c:\\users\\2317919\\documents\\github\\dicerpg\\dicerpggame\\assets\\scripts\\dice\\dicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dice\\dicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|c:\\users\\2317919\\documents\\github\\dicerpg\\dicerpggame\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\assets\\scripts\\ui\\ui_script.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\ui_script.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|c:\\users\\2317919\\documents\\github\\dicerpg\\dicerpggame\\assets\\scripts\\dice\\dicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dice\\dicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UI_script.cs",
-              "DocumentMoniker": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\UI\\UI_script.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UI_script.cs",
-              "ToolTip": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\UI\\UI_script.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\UI_script.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
+              "ToolTip": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Enemy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T14:07:52.672Z",
-              "IsPinned": true
+              "WhenOpened": "2024-10-11T14:10:08.172Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DiceManager.cs",
               "DocumentMoniker": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Dice\\DiceManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Dice\\DiceManager.cs",
               "ToolTip": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Dice\\DiceManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Dice\\DiceManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T13:25:25.45Z",
+              "WhenOpened": "2024-10-11T13:35:59.351Z",
               "EditorCaption": ""
             }
           ]
