@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\",
+  "WorkspaceRootPath": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|c:\\users\\2317919\\documents\\github\\dicerpg\\dicerpggame\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|c:\\users\\2317919\\documents\\github\\dicerpg\\dicerpggame\\assets\\scripts\\dice\\dicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dice\\dicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|c:\\users\\44777\\documents\\github\\dicerpg\\dicerpggame\\assets\\scripts\\pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Enemy.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
-              "ToolTip": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Enemy.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Title": "Pawn.cs",
+              "DocumentMoniker": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Pawn.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Pawn.cs",
+              "ToolTip": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Pawn.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Pawn.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T14:10:08.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DiceManager.cs",
-              "DocumentMoniker": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Dice\\DiceManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Dice\\DiceManager.cs",
-              "ToolTip": "C:\\Users\\2317919\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Dice\\DiceManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Dice\\DiceManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T13:35:59.351Z",
+              "WhenOpened": "2024-10-12T16:57:23.115Z",
               "EditorCaption": ""
             }
           ]
