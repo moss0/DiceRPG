@@ -42,12 +42,15 @@ public class Pawn : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, maxDistanceDelta);
         }
+        else
+        {
 
-        //for (int i = 0; i < 60f * 1/Time.deltaTime; i++)
-        //{
-        //    Debug.Log(Vector3.Magnitude(vectDiff));
-        //    i = 0;
-        //}
+        }
+        /*for (int i = 0; i < 60f * 1 / Time.deltaTime; i++)
+        {
+            Debug.Log(Vector3.Magnitude(vectDiff));
+            i = 0;
+        }*/
 
     }
 
