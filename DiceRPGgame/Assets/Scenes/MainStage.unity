@@ -273,7 +273,7 @@ MonoBehaviour:
   defence: 0
   speed: 0
   hitPeriod: 0
-  minLockOnDist: 2.5
+  minLockOnDist: 3
   maxDistanceDelta: 0.005
   isEnemy: 1
   myName: 

@@ -5,11 +5,16 @@ using UnityEngine;
 public class Pawn : MonoBehaviour
 {
     public float health, damage, defence, speed, hitPeriod, minLockOnDist, maxDistanceDelta = 0.005f;
-    private float xAxis, yAxis, fixedSpeed;
+    private float _xAxis, _yAxis, _fixedSpeed;
     public bool isEnemy;
     public string myName;
     public Rigidbody2D myRigidBody;
     public GameObject player;
+
+    private float _currentTimer = 0f, _timeToComplete = 5f;
+
+    // fix speedy diagonal movement
+
     public void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -28,30 +33,38 @@ public class Pawn : MonoBehaviour
 
     public void ControlMovement()
     {
-        fixedSpeed = speed * Time.deltaTime;
-        xAxis = Input.GetAxis("Horizontal");
-        yAxis = Input.GetAxis("Vertical");
-        myRigidBody.velocity = new Vector2(xAxis * fixedSpeed, yAxis * fixedSpeed);
+        _fixedSpeed = speed * Time.deltaTime;
+        _xAxis = Input.GetAxis("Horizontal");
+        _yAxis = Input.GetAxis("Vertical");
+        myRigidBody.velocity = new Vector2(_xAxis * _fixedSpeed, _yAxis * _fixedSpeed);
     }
     
     public void EnemyMovement()
     {
-        Vector3 vectDiff = player.transform.position - transform.position;
-        fixedSpeed = maxDistanceDelta * Time.deltaTime;
-        if (Vector3.Magnitude(vectDiff) < minLockOnDist)
+        Vector2 vectDiff = player.transform.position - transform.position;
+        _fixedSpeed = maxDistanceDelta * Time.deltaTime;
+        if (Mathf.Sqrt(vectDiff.x * vectDiff.x + vectDiff.y * vectDiff.y) < minLockOnDist)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, maxDistanceDelta);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, maxDistanceDelta);
         }
         else
         {
-
+            if (_currentTimer >= _timeToComplete)
+            {
+                // do what you need to here
+                //float randomMagnitude = Random.Range(0.5f, 5f);
+                Vector3 randomVector = Random.insideUnitCircle; //* randomMagnitude;
+                Vector3 targetPosition = transform.position + randomVector;
+                Vector3 interpPos = Vector3.Lerp(transform.position, targetPosition,_currentTimer);
+                transform.position += interpPos;
+                
+                _currentTimer = 0f;
+            }
+            else
+            {
+                _currentTimer += Time.deltaTime;
+            }
         }
-        /*for (int i = 0; i < 60f * 1 / Time.deltaTime; i++)
-        {
-            Debug.Log(Vector3.Magnitude(vectDiff));
-            i = 0;
-        }*/
-
     }
 
     public void TakeDamage()
@@ -59,6 +72,11 @@ public class Pawn : MonoBehaviour
         
     }
     public void Attack()
+    {
+
+    }
+
+    private void Timer()
     {
 
     }
