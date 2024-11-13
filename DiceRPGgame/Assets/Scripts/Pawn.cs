@@ -4,46 +4,66 @@ using UnityEngine;
 
 public class Pawn : MonoBehaviour
 {
-    public float health, damage, defence, speed, hitPeriod, minLockOnDist, maxDistanceDelta = 0.005f;
-    private float _xAxis, _yAxis, _fixedSpeed;
+    public float health, damage, defence, speed, hitPeriod;
     public bool isEnemy;
     public string myName;
-    public Rigidbody2D myRigidBody;
-    public GameObject player;
+    public string[] typeList = {"Player","Enemy","h"};
 
+    private float _xAxis, _yAxis, _fixedSpeed, _timer;
+    private Rigidbody2D _rb;
+    
+    [Header("Enemy exclusive")]
+    public GameObject player;
+    public float minLockOnDist = 3f, maxDistanceDelta = 0.005f;
     private float _currentTimer = 0f, _timeToComplete = 5f;
 
-    // fix speedy diagonal movement
+    //fix speedy diagonal movement
 
     public void Start()
     {
-        myRigidBody = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
     public void Update()
     {
-        if (isEnemy == false)
-        { 
-            ControlMovement(); 
-        }
-        if (isEnemy == true)
+        foreach (string type in typeList)
         {
-            EnemyMovement();
+            switch (type)
+            {
+                case "Player":
+                    PlayerMovement();
+                    _timer += Time.deltaTime;
+                    if (_timer >= 3f)
+                    {
+                        Debug.Log(_rb.velocity);
+                        _timer = 0f;
+                    }
+                    break;
+
+                case "Enemy":
+                    EnemyMovement();
+                    break;
+
+                default:
+                    Debug.LogWarning("Unknown pawn type");
+                    break;
+            }
         }
     }
 
-    public void ControlMovement()
+    public void PlayerMovement()
     {
         _fixedSpeed = speed * Time.deltaTime;
         _xAxis = Input.GetAxis("Horizontal");
         _yAxis = Input.GetAxis("Vertical");
-        myRigidBody.velocity = new Vector2(_xAxis * _fixedSpeed, _yAxis * _fixedSpeed);
+        Vector2 blah = new Vector2 (_xAxis, _yAxis).normalized;
+        _rb.velocity = blah * _fixedSpeed;
     }
     
     public void EnemyMovement()
     {
         Vector2 vectDiff = player.transform.position - transform.position;
         _fixedSpeed = maxDistanceDelta * Time.deltaTime;
-        if (Mathf.Sqrt(vectDiff.x * vectDiff.x + vectDiff.y * vectDiff.y) < minLockOnDist)
+        if (vectDiff.magnitude < minLockOnDist)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, maxDistanceDelta);
         }

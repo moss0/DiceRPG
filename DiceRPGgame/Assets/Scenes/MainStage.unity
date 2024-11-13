@@ -181,6 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 184595674}
   - component: {fileID: 184595675}
+  - component: {fileID: 184595677}
   - component: {fileID: 184595676}
   m_Layer: 0
   m_Name: Enemy
@@ -273,12 +274,38 @@ MonoBehaviour:
   defence: 0
   speed: 0
   hitPeriod: 0
-  minLockOnDist: 3
-  maxDistanceDelta: 0.005
   isEnemy: 1
   myName: 
-  myRigidBody: {fileID: 0}
   player: {fileID: 770451904}
+  minLockOnDist: 3
+  maxDistanceDelta: 0.005
+--- !u!50 &184595677
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184595673}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &631740275
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,12 +521,11 @@ MonoBehaviour:
   defence: 0
   speed: 2000
   hitPeriod: 0
-  minLockOnDist: 0
-  maxDistanceDelta: 0
   isEnemy: 0
   myName: 
-  myRigidBody: {fileID: 0}
   player: {fileID: 0}
+  minLockOnDist: 0
+  maxDistanceDelta: 0.005
 --- !u!1 &925188567
 GameObject:
   m_ObjectHideFlags: 0
