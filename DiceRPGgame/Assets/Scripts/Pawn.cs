@@ -1,62 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pawn : MonoBehaviour
 {
     public float health, damage, defence, speed, hitPeriod;
-    public bool isEnemy;
     public string myName;
-    public string[] typeList = {"Player","Enemy","h"};
+    public float _rbVelocityDisplay;
+    [Header("0: Player, 1: Enemy, 2: h")]  public int typeIndex;
 
     private float _xAxis, _yAxis, _fixedSpeed, _timer;
     private Rigidbody2D _rb;
-    
+
     [Header("Enemy exclusive")]
     public GameObject player;
     public float minLockOnDist = 3f, maxDistanceDelta = 0.005f;
     private float _currentTimer = 0f, _timeToComplete = 5f;
 
+    
     //fix speedy diagonal movement
 
     public void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
-    public void Update()
+
+    private void FixedUpdate()
     {
-        foreach (string type in typeList)
+
+    }
+
+    private void Update()
+    {
+        switch (typeIndex)
         {
-            switch (type)
-            {
-                case "Player":
-                    PlayerMovement();
-                    _timer += Time.deltaTime;
-                    if (_timer >= 3f)
-                    {
-                        Debug.Log(_rb.velocity);
-                        _timer = 0f;
-                    }
-                    break;
+            case 0:
+                PlayerMovement();
+                _rbVelocityDisplay = _rb.velocity.magnitude;
+                //_timer += Time.deltaTime;
+                //if (_timer >= 3f)
+                //{
+                //    Debug.Log(_rb.velocity);
+                //    _timer = 0f;
+                //}
+                break;
 
-                case "Enemy":
-                    EnemyMovement();
-                    break;
+            case 1:
+                EnemyMovement();
+                break;
 
-                default:
-                    Debug.LogWarning("Unknown pawn type");
-                    break;
-            }
+            case 2:
+
+                break;
+
+            default:
+                Debug.LogWarning("Unknown pawn type");
+                break;
         }
     }
 
     public void PlayerMovement()
     {
-        _fixedSpeed = speed * Time.deltaTime;
         _xAxis = Input.GetAxis("Horizontal");
         _yAxis = Input.GetAxis("Vertical");
-        Vector2 blah = new Vector2 (_xAxis, _yAxis).normalized;
-        _rb.velocity = blah * _fixedSpeed;
+        Vector2 v = new Vector2 (_xAxis, _yAxis).normalized;
+        _rb.velocity = v * speed;
     }
     
     public void EnemyMovement()

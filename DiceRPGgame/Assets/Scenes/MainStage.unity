@@ -274,8 +274,9 @@ MonoBehaviour:
   defence: 0
   speed: 0
   hitPeriod: 0
-  isEnemy: 1
   myName: 
+  _rbVelocityDisplay: 0
+  typeIndex: 1
   player: {fileID: 770451904}
   minLockOnDist: 3
   maxDistanceDelta: 0.005
@@ -521,10 +522,11 @@ MonoBehaviour:
   defence: 0
   speed: 2000
   hitPeriod: 0
-  isEnemy: 0
   myName: 
+  _rbVelocityDisplay: 0
+  typeIndex: 0
   player: {fileID: 0}
-  minLockOnDist: 0
+  minLockOnDist: 3
   maxDistanceDelta: 0.005
 --- !u!1 &925188567
 GameObject:
