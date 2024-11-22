@@ -7,7 +7,7 @@ public class Pawn : MonoBehaviour
 {
     public float health, damage, defence, speed, hitPeriod;
     public string myName;
-    public float _rbVelocityDisplay;
+    public float _rbVelocityMagnitude;
     [Header("0: Player, 1: Enemy, 2: h")]  public int typeIndex;
 
     [SerializeField]private float _xAxis, _yAxis, _fixedSpeed, _timer;
@@ -16,11 +16,12 @@ public class Pawn : MonoBehaviour
     [Header("Enemy exclusive")]
     public GameObject player;
     public float minLockOnDist = 3f, maxDistanceDelta = 0.005f;
-    private float _currentTimer = 0f, _timeToComplete = 5f;
-
+    [SerializeField] private float _currentTimer = 0f, _timeToComplete = 5f;
     
-    //fix speedy diagonal movement
-
+    private Vector3 targetPosition;
+    private bool _EnemyRandomPointReached = true;
+    private Vector3 _EnemyRandomVector;
+    private Vector3 _EnemyStoredPosition;
     public void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -28,7 +29,7 @@ public class Pawn : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerMovementValue();
+        PlayerMovementVectorSetup();
     }
 
     private void Update()
@@ -37,13 +38,7 @@ public class Pawn : MonoBehaviour
         {
             case 0:
                 PlayerMovementInputs();
-                _rbVelocityDisplay = _rb.velocity.magnitude;
-                //_timer += Time.deltaTime;
-                //if (_timer >= 3f)
-                //{
-                //    Debug.Log(_rb.velocity);
-                //    _timer = 0f;
-                //}
+                //_rbVelocityMagnitude = _rb.velocity.magnitude;
                 break;
 
             case 1:
@@ -62,34 +57,16 @@ public class Pawn : MonoBehaviour
 
     public void PlayerMovementInputs()
     {
-        _xAxis = Input.GetAxis("Horizontal");
-        _yAxis = Input.GetAxis("Vertical");
-
-        if (_xAxis > 0)
-        {
-            _xAxis = 1;
-        }
-        else if(_xAxis < 0)
-        {
-            _xAxis = -1;
-        }
-        if (_yAxis > 0)
-        {
-            _yAxis = 1;
-        }
-        else if(_yAxis < 0)
-        {
-            _yAxis = -1;
-        }
-
+        _xAxis = Input.GetAxisRaw("Horizontal");
+        _yAxis = Input.GetAxisRaw("Vertical");
     }
-
-    private void PlayerMovementValue()
+    private void PlayerMovementVectorSetup()
     {
         Vector2 v = new Vector2(_xAxis, _yAxis).normalized;
         _rb.velocity = v * speed * Time.deltaTime;
     }
     
+
     public void EnemyMovement()
     {
         Vector2 vectDiff = player.transform.position - transform.position;
@@ -100,20 +77,28 @@ public class Pawn : MonoBehaviour
         }
         else
         {
+            _currentTimer += Time.deltaTime;
             if (_currentTimer >= _timeToComplete)
             {
-                // do what you need to here
-                //float randomMagnitude = Random.Range(0.5f, 5f);
-                Vector3 randomVector = Random.insideUnitCircle; //* randomMagnitude;
-                Vector3 targetPosition = transform.position + randomVector;
-                Vector3 interpPos = Vector3.Lerp(transform.position, targetPosition,_currentTimer);
-                transform.position += interpPos;
+                if (_EnemyRandomPointReached == true)
+                {
+                    float multiplier = Random.Range(3f, 7f);
+                    _EnemyRandomVector = Random.insideUnitCircle.normalized * multiplier;
+                    Vector3 h = transform.position;
+                    targetPosition = h + _EnemyRandomVector;
+                }
+                _EnemyRandomPointReached = false;
+
+
+                transform.position = Vector2.MoveTowards(transform.position, targetPosition, maxDistanceDelta);
+
+                if (transform.position == targetPosition)
+                {
+                    _currentTimer = 0f;
+                    _EnemyRandomPointReached = true;
+                }
+
                 
-                _currentTimer = 0f;
-            }
-            else
-            {
-                _currentTimer += Time.deltaTime;
             }
         }
     }
