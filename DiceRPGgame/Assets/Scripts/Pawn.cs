@@ -10,7 +10,7 @@ public class Pawn : MonoBehaviour
     public float _rbVelocityDisplay;
     [Header("0: Player, 1: Enemy, 2: h")]  public int typeIndex;
 
-    private float _xAxis, _yAxis, _fixedSpeed, _timer;
+    [SerializeField]private float _xAxis, _yAxis, _fixedSpeed, _timer;
     private Rigidbody2D _rb;
 
     [Header("Enemy exclusive")]
@@ -28,7 +28,7 @@ public class Pawn : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        PlayerMovementValue();
     }
 
     private void Update()
@@ -36,7 +36,7 @@ public class Pawn : MonoBehaviour
         switch (typeIndex)
         {
             case 0:
-                PlayerMovement();
+                PlayerMovementInputs();
                 _rbVelocityDisplay = _rb.velocity.magnitude;
                 //_timer += Time.deltaTime;
                 //if (_timer >= 3f)
@@ -60,12 +60,34 @@ public class Pawn : MonoBehaviour
         }
     }
 
-    public void PlayerMovement()
+    public void PlayerMovementInputs()
     {
         _xAxis = Input.GetAxis("Horizontal");
         _yAxis = Input.GetAxis("Vertical");
-        Vector2 v = new Vector2 (_xAxis, _yAxis).normalized;
-        _rb.velocity = v * speed;
+
+        if (_xAxis > 0)
+        {
+            _xAxis = 1;
+        }
+        else if(_xAxis < 0)
+        {
+            _xAxis = -1;
+        }
+        if (_yAxis > 0)
+        {
+            _yAxis = 1;
+        }
+        else if(_yAxis < 0)
+        {
+            _yAxis = -1;
+        }
+
+    }
+
+    private void PlayerMovementValue()
+    {
+        Vector2 v = new Vector2(_xAxis, _yAxis).normalized;
+        _rb.velocity = v * speed * Time.deltaTime;
     }
     
     public void EnemyMovement()
