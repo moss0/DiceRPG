@@ -10,19 +10,20 @@ public class Pawn : MonoBehaviour
     public float _rbVelocityMagnitude;
     [Header("0: Player, 1: Enemy, 2: h")]  public int typeIndex;
 
-    [SerializeField]private float _xAxis, _yAxis, _fixedSpeed, _timer;
+    private float _xAxis, _yAxis, _fixedSpeed, _timer;
     private Rigidbody2D _rb;
 
     [Header("Enemy exclusive")]
     public GameObject player;
     public float minLockOnDist = 3f, maxDistanceDelta = 0.005f;
-    [SerializeField] private float _currentTimer = 0f, _timeToComplete = 5f;
-    
+    [SerializeField] private float _enemyTimer1Threshold = 5f, _enemyTimer2Threshold = 3f;
+    private float _enemyTimer1 = 0f, _enemyTimer2;
+
     private Vector3 targetPosition;
-    private bool _EnemyRandomPointReached = true;
-    private Vector3 _EnemyRandomVector;
-    private Vector3 _EnemyStoredPosition;
-    public void Start()
+    private bool _enemyRandomPointGenerated = false;
+    private Vector3 _enemyRandomPoint;
+    [SerializeField] private bool _enemyLockedOn;
+    private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -55,7 +56,7 @@ public class Pawn : MonoBehaviour
         }
     }
 
-    public void PlayerMovementInputs()
+    private void PlayerMovementInputs()
     {
         _xAxis = Input.GetAxisRaw("Horizontal");
         _yAxis = Input.GetAxisRaw("Vertical");
@@ -67,53 +68,68 @@ public class Pawn : MonoBehaviour
     }
     
 
-    public void EnemyMovement()
+    private void EnemyMovement()
     {
         Vector2 vectDiff = player.transform.position - transform.position;
-        _fixedSpeed = maxDistanceDelta * Time.deltaTime;
         if (vectDiff.magnitude < minLockOnDist)
         {
+            _enemyLockedOn = true;
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, maxDistanceDelta);
+            Debug.DrawLine(transform.position, player.transform.position);
         }
         else
         {
-            _currentTimer += Time.deltaTime;
-            if (_currentTimer >= _timeToComplete)
+            _enemyLockedOn = false;
+            _enemyTimer1 += Time.deltaTime;
+            if (_enemyTimer1 >= _enemyTimer1Threshold)
             {
-                if (_EnemyRandomPointReached == true)
-                {
-                    float multiplier = Random.Range(3f, 7f);
-                    _EnemyRandomVector = Random.insideUnitCircle.normalized * multiplier;
-                    Vector3 h = transform.position;
-                    targetPosition = h + _EnemyRandomVector;
-                }
-                _EnemyRandomPointReached = false;
-
-
-                transform.position = Vector2.MoveTowards(transform.position, targetPosition, maxDistanceDelta);
-
-                if (transform.position == targetPosition)
-                {
-                    _currentTimer = 0f;
-                    _EnemyRandomPointReached = true;
-                }
-
-                
+                _EnemyRandomIdleMovement();
             }
         }
     }
 
-    public void TakeDamage()
+    private void _EnemyRandomIdleMovement()
     {
+        if (_enemyRandomPointGenerated == false)
+        {
+            _enemyRandomPointGenerated = true;
+            _enemyRandomPoint = Random.insideUnitCircle.normalized * 2f;
+        }
         
-    }
-    public void Attack()
-    {
 
+        targetPosition = transform.position + _enemyRandomPoint;
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, maxDistanceDelta);
+        
+        _enemyTimer2 += Time.deltaTime;
+        if (_enemyTimer2 >= _enemyTimer2Threshold)
+        {
+            _enemyTimer1 = 0;
+            _enemyTimer2 = 0;
+            _enemyRandomPointGenerated = false;
+        }
     }
 
-    private void Timer()
-    {
 
-    }
+
+
+    // garbage pile
+
+
+    //if (_EnemyRandomPointReached == true)
+    //{
+    //    float multiplier = Random.Range(3f, 7f);
+    //    _EnemyRandomVector = Random.insideUnitCircle.normalized * multiplier;
+    //    Vector3 h = transform.position;
+    //    targetPosition = h + _EnemyRandomVector;
+    //}
+    //_EnemyRandomPointReached = false;
+    //Debug.DrawLine(transform.position, targetPosition);
+
+    //transform.position = Vector2.MoveTowards(transform.position, targetPosition, maxDistanceDelta);
+
+    //if (transform.position == targetPosition)
+    //{
+    //    _currentTimer = 0f;
+    //    _EnemyRandomPointReached = true;
+    //}
 }
