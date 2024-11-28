@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8469743256216696592}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,16 +171,12 @@ MonoBehaviour:
   myName: 
   _rbVelocityMagnitude: 0
   typeIndex: 0
-  _xAxis: 0
-  _yAxis: 0
-  _fixedSpeed: 0
-  _timer: 0
   player: {fileID: 0}
   minLockOnDist: 3
   maxDistanceDelta: 0.005
-  _currentTimer: 0
-  _timeToComplete: 5
-  _EnemyLockedOn: 0
+  _enemyTimer1Threshold: 5
+  _enemyTimer2Threshold: 3
+  _enemyLockedOn: 0
 --- !u!1 &2612022508122215499
 GameObject:
   m_ObjectHideFlags: 0

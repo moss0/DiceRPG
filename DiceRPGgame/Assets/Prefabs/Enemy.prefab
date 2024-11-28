@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 738579971341271246}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.77, y: 1.62, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3284422208875360925}
   - component: {fileID: 8994457544535742295}
+  - component: {fileID: 7309302755484683079}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -263,3 +264,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7309302755484683079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808995782968549443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140a69db7937d2747b8b55db65c2ef84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
