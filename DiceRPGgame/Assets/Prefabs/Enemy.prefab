@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8801130339420460530}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,8 @@ MonoBehaviour:
   player: {fileID: 0}
   minLockOnDist: 3
   maxDistanceDelta: 0.005
+  enemyInBattleRange: 0
+  playerInBattleRange: 0
   _enemyTimer1Threshold: 2.5
   _enemyTimer2Threshold: 3
   _enemyLockedOn: 0
@@ -214,7 +216,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0442, y: 1.0442, z: 1.0442}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2016646381514920737}

@@ -14,8 +14,11 @@ public class Pawn : MonoBehaviour
     private Rigidbody2D _rb;
 
     [Header("Enemy exclusive")]
-    public GameObject player;
+    public static GameObject player;
     public float minLockOnDist = 3f, maxDistanceDelta = 0.005f;
+    
+    public bool enemyInBattleRange, playerInBattleRange;
+
     [SerializeField] private float _enemyTimer1Threshold = 5f, _enemyTimer2Threshold = 3f;
     private float _enemyTimer1 = 0f, _enemyTimer2;
 
@@ -23,9 +26,14 @@ public class Pawn : MonoBehaviour
     private bool _enemyRandomPointGenerated = false;
     private Vector3 _enemyRandomPoint;
     [SerializeField] private bool _enemyLockedOn;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        if (typeIndex == 1)
+        {
+            player = GameObject.Find("Player");
+        }
     }
 
     private void FixedUpdate()
@@ -95,8 +103,8 @@ public class Pawn : MonoBehaviour
             _enemyRandomPointGenerated = true;
             _enemyRandomPoint = Random.insideUnitCircle.normalized * 2f;
         }
-        
 
+        Debug.DrawLine(transform.position, targetPosition);
         targetPosition = transform.position + _enemyRandomPoint;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, maxDistanceDelta);
         
