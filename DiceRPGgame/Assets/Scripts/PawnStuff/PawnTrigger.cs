@@ -5,38 +5,24 @@ using UnityEngine;
 public class PawnTrigger : MonoBehaviour
 {
     private Pawn parent;
-    //private Pawn target;
+    public GameObject targetInTrigger;
     private void Start()
     {
         parent = GetComponentInParent<Pawn>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (CompareTag("Player")) // player target
-        //{
-        //    parent.playerInBattleRange = true;
-        //}
-        //else
-        //{
-        //    parent.playerInBattleRange = false;
-        //}
-        
-        if (CompareTag("Enemy")) // enemy target
+        if (collision.CompareTag("Enemy"))
         {
             parent.enemyInBattleRange = true;
+            targetInTrigger = collision.gameObject;
         }
-        else
-        {
-            parent.enemyInBattleRange = false;
-        }
-        
-        //if (CompareTag("h")) // new class target
-        //{
-            
-        //}
-        //else
-        //{
-            
-        //}
+        //Debug.Log("Enter called");
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        parent.enemyInBattleRange = false;
+        //Debug.Log("Exit called");
+    }
+
 }

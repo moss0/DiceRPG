@@ -14,12 +14,12 @@ public class Pawn : MonoBehaviour
     private Rigidbody2D _rb;
 
     [Header("Enemy exclusive")]
-    public static GameObject player;
-    public float minLockOnDist = 3f, maxDistanceDelta = 0.005f;
+    private GameObject player;
+    private static float minLockOnDist = 3f, maxDistanceDelta = 0.005f;
     
     public bool enemyInBattleRange, playerInBattleRange;
 
-    [SerializeField] private float _enemyTimer1Threshold = 5f, _enemyTimer2Threshold = 3f;
+    private static float _enemyTimer1Threshold = 5f, _enemyTimer2Threshold = 3f;
     private float _enemyTimer1 = 0f, _enemyTimer2;
 
     private Vector3 targetPosition;
@@ -27,13 +27,16 @@ public class Pawn : MonoBehaviour
     private Vector3 _enemyRandomPoint;
     [SerializeField] private bool _enemyLockedOn;
 
+    private PawnTrigger triggerChild;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         if (typeIndex == 1)
         {
-            player = GameObject.Find("Player");
+            player = GameObject.FindWithTag("Player");
         }
+        _fixedSpeed = speed * Time.deltaTime;
+        triggerChild = GetComponentInChildren<PawnTrigger>();
     }
 
     private void FixedUpdate()
@@ -47,7 +50,6 @@ public class Pawn : MonoBehaviour
         {
             case 0:
                 PlayerMovementInputs();
-                //_rbVelocityMagnitude = _rb.velocity.magnitude;
                 break;
 
             case 1:
@@ -72,7 +74,7 @@ public class Pawn : MonoBehaviour
     private void PlayerMovementVectorSetup()
     {
         Vector2 v = new Vector2(_xAxis, _yAxis).normalized;
-        _rb.velocity = v * speed * Time.deltaTime;
+        _rb.velocity = v * _fixedSpeed;
     }
     
 
@@ -82,7 +84,7 @@ public class Pawn : MonoBehaviour
         if (vectDiff.magnitude < minLockOnDist)
         {
             _enemyLockedOn = true;
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, maxDistanceDelta);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, maxDistanceDelta * _fixedSpeed);
             Debug.DrawLine(transform.position, player.transform.position);
         }
         else
