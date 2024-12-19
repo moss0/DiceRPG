@@ -9,6 +9,7 @@ public class PawnTrigger : MonoBehaviour
     private void Start()
     {
         parent = GetComponentInParent<Pawn>();
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

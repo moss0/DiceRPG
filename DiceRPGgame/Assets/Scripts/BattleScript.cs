@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Battle : MonoBehaviour
+public class BattleScript : MonoBehaviour
 {
     private GameObject player, target;
     private Pawn playerPawn, targetPawn;
-    private bool battleActive;
+    public bool battleActive;
     //private float playerHealth, enemyHealth;
     //private float playerDefence, enemyDefence;
     //private float playerHitPeriod, enemyHitPeriod;
@@ -16,7 +16,8 @@ public class Battle : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         playerPawn = player.GetComponent<Pawn>();
-        //target = playerPawn.
+        target = playerPawn.triggerEnemyRef;
+        targetPawn = target.GetComponent<Pawn>();
     }
     private void Update()
     {

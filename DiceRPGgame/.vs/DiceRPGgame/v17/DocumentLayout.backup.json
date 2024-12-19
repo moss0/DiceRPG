@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|c:\\users\\44777\\documents\\github\\dicerpg\\dicerpggame\\assets\\scripts\\battle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\assets\\scripts\\pawnstuff\\pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pawnstuff\\pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|c:\\users\\44777\\documents\\github\\dicerpg\\dicerpggame\\assets\\scripts\\battlescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\battlescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\assets\\scripts\\pawnstuff\\pawntrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\assets\\scripts\\ui\\ui_script.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\ui_script.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\assets\\scripts\\temperature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDB2F3F8-C2DA-74D5-3873-70A68F92E6FE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\temperature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -46,7 +42,8 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\MainMenu.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T21:41:23.565Z"
+              "WhenOpened": "2024-11-28T21:41:23.565Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -62,25 +59,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Temperature.cs",
-              "DocumentMoniker": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Temperature.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Temperature.cs",
-              "ToolTip": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Temperature.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Temperature.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T20:34:56.632Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Pawn.cs",
               "DocumentMoniker": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\PawnStuff\\Pawn.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PawnStuff\\Pawn.cs",
               "ToolTip": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\PawnStuff\\Pawn.cs",
               "RelativeToolTip": "Assets\\Scripts\\PawnStuff\\Pawn.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAA1wD8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T22:06:02.968Z",
               "EditorCaption": ""
@@ -93,22 +78,22 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\PawnStuff\\PawnTrigger.cs",
               "ToolTip": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\PawnStuff\\PawnTrigger.cs",
               "RelativeToolTip": "Assets\\Scripts\\PawnStuff\\PawnTrigger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T22:06:01.446Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Battle.cs",
-              "DocumentMoniker": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Battle.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Battle.cs",
-              "ToolTip": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\Battle.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Battle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAyAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "BattleScript.cs",
+              "DocumentMoniker": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\BattleScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BattleScript.cs",
+              "ToolTip": "C:\\Users\\44777\\Documents\\GitHub\\DiceRPG\\DiceRPGgame\\Assets\\Scripts\\BattleScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BattleScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T22:10:52.316Z",
+              "WhenOpened": "2024-12-18T01:52:41.11Z",
               "EditorCaption": ""
             }
           ]

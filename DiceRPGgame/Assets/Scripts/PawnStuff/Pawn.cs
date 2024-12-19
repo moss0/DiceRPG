@@ -7,19 +7,19 @@ public class Pawn : MonoBehaviour
 {
     public float health, damage, defence, speed, hitPeriod;
     public string myName;
-    public float _rbVelocityMagnitude;
+    private float _rbVelocityMagnitude;
     [Header("0: Player, 1: Enemy, 2: h")]  public int typeIndex;
 
     private float _xAxis, _yAxis, _fixedSpeed, _timer;
     private Rigidbody2D _rb;
 
-    [Header("Enemy exclusive")]
+    // [Header("Enemy exclusive")]
     private GameObject player;
-    private static float minLockOnDist = 3f, maxDistanceDelta = 0.005f;
+    private float minLockOnDist = 3f, maxDistanceDelta = 0.005f;
     
     public bool enemyInBattleRange, playerInBattleRange;
 
-    private static float _enemyTimer1Threshold = 5f, _enemyTimer2Threshold = 3f;
+    private float _enemyTimer1Threshold = 5f, _enemyTimer2Threshold = 3f;
     private float _enemyTimer1 = 0f, _enemyTimer2;
 
     private Vector3 targetPosition;
@@ -28,6 +28,10 @@ public class Pawn : MonoBehaviour
     [SerializeField] private bool _enemyLockedOn;
 
     private PawnTrigger triggerChild;
+    [HideInInspector] public GameObject triggerEnemyRef;
+
+    private BattleScript battleScriptRef;
+    //private GameObject battleManagerRef;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -37,6 +41,10 @@ public class Pawn : MonoBehaviour
         }
         _fixedSpeed = speed * Time.deltaTime;
         triggerChild = GetComponentInChildren<PawnTrigger>();
+        
+
+        battleScriptRef = GameObject.Find("BattleManager").GetComponent<BattleScript>();
+        //battleManagerRef = GameObject.Find("BattleManager");
     }
 
     private void FixedUpdate()
@@ -50,6 +58,12 @@ public class Pawn : MonoBehaviour
         {
             case 0:
                 PlayerMovementInputs();
+                
+                triggerEnemyRef = triggerChild.targetInTrigger;
+                if (enemyInBattleRange)
+                {
+                    battleScriptRef.battleActive = true;
+                }
                 break;
 
             case 1:
